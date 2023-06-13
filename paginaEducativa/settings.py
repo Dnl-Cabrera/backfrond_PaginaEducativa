@@ -71,6 +71,7 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 REST_FRAMEWORK = { 
     'DEFAULT_AUTHENTICATION_CLASSES': [ 'rest_framework.authentication.TokenAuthentication', ], 
     }
+
 ACCOUNT_EMAIL_VERIFICATION = 'none' #this line is for the template of the login from dj_rest in the moment of login, ignored the authentication email
 #and it can in or login.
 

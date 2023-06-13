@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Usuario(models.Model):
-    id_users=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True) #Se crea la relacion con la tabla User, el cual debe ser uno a uno. 
+    #related_named como se va llamar en otros lados del codigo
+    id_users=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name=('id_userss')) #Se crea la relacion con la tabla User, el cual debe ser uno a uno. 
     cedula=models.CharField(max_length=50,default='',unique=True)
     nombre=models.CharField(max_length=50,default='')
     apellido=models.CharField(max_length=50,default='')

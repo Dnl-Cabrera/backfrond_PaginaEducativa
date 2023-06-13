@@ -20,11 +20,26 @@ from django.contrib.auth.models import Group
 class userSerializer(ModelSerializer):
 	class Meta:
 		model = User
-		fields = ['username', 'password'] #in this case only show the fields username and password from user model. However, this model has many fields, for example, first_name and last_name.
+		fields = ['pk', 'username', 'password'] #in this case only show the fields username and password from user model. However, this model has many fields, for example, first_name and last_name.
 		#fields =  '__all__' #We can use this parameter for see the name of each field the user table using the url for createuser
         
 	
 from rest_framework.serializers import PrimaryKeyRelatedField
+
+class usuarioUpdateSerializer(ModelSerializer): 
+	#id_users = userSerializer(many=False)
+	class Meta:
+		#in this class we need show the fields relationship with de model user, this model is created by django"
+        #With this id_user, in the views we can see the fields in the model user from django for create a new user.
+        #This creations create the user in the table users, from django, and usuario, model create by our.
+		model = Usuario # model.ty.. Es el nombre del modelo importado, ejemplo Academico. 
+		fields = '__all__'
+
+class userUpdateSerializer(ModelSerializer):
+	id_userss = usuarioUpdateSerializer(many=False)
+	class Meta:
+		model = User
+		fields = '__all__'
 
 class usuarioSerializer(ModelSerializer): 
 
