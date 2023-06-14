@@ -22,12 +22,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from dj_rest_auth.registration.views import RegisterView
-####
-from rest_framework.authtoken.views import obtain_auth_token
+
 
 urlpatterns = [
-    ###
-    path('obtain_token/',obtain_auth_token,name="obtain_token"),
     path('admin/', admin.site.urls),
     path("usuario/", include("usuario.urls", namespace="usuario")), #En este caso estamos agregando las urls que estan en la startapp de usuario para poderlas consultar.
     #en este caso la direccion es usuario y lo va a ir a buscar en la startapp usuario en el archivo urls.py
