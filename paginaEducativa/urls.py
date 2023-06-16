@@ -32,4 +32,5 @@ urlpatterns = [
     path('dj-rest-auth/', include('dj_rest_auth.urls')),#Import the path for the template from dj_rest for generate the token in the moment the login.
     path('auth/registration/', RegisterView.as_view(), name='rest_register'), #import template for the register user. This path of registration its can make with the serializer for include all fields from usuario models.
     
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(".well-known", document_root=settings.MEDIA_ROOT)
+
